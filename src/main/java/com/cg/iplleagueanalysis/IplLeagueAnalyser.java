@@ -15,6 +15,8 @@ import com.opencsv.bean.CsvToBeanBuilder;
 public class IplLeagueAnalyser {
 
 	public static List<IplData> IplDataList;
+	public static List<BowlingData> IplBowlingDataList;
+	
 	public int loadCSVData(String csvFile) {
 		int numOfEntries=0;
 		try {
@@ -106,7 +108,6 @@ public class IplLeagueAnalyser {
 		List<IplData> batmenBestStrikingRateWithGreatestAverage =cricketerWithGreatestAverage.stream()
 				.filter(player->player.getSR()==bestStrikeRate)
 				.collect(Collectors.toList());
-		
 		return batmenBestStrikingRateWithGreatestAverage ;
 	}
 	
@@ -127,6 +128,14 @@ public class IplLeagueAnalyser {
 				.collect(Collectors.toList());
 
 		return batmenBestStrikingRateWithGreatestAverage ;
+	}
+	
+	public List<BowlingData> getTopBowlingAverages(){
+		List<BowlingData> sortedAvgBowlingList = IplBowlingDataList.stream()
+				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg))
+				.collect(Collectors.toList());
+		Collections.reverse(sortedAvgBowlingList);
+		return sortedAvgBowlingList;
 	}
 	
 }

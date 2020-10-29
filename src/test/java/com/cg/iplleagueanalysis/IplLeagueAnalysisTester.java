@@ -50,9 +50,8 @@ public class IplLeagueAnalysisTester {
 	
 	@Test
 	public void givenIplDataCSVFileReturnsCricketerWithMax4s() throws Exception {
-
 		List<IplData> batmenWithMax4s = iplLeagueAnalyser.getTopBatmenWithMax4s(FILE_PATH);
-		assertEquals("Shikhar Dhawan", batmenWithMax4s.get(0).player);
+		assertEquals("Shikhar Dhawan", batmenWithMax4s.get(0).getPlayer());
 	}
 	
 	@Test
