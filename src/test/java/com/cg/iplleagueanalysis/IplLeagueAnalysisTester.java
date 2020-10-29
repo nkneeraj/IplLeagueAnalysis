@@ -15,10 +15,20 @@ public class IplLeagueAnalysisTester {
 	@Before
 	public void setUp() throws IOException {
 		iplLeagueAnalyser=new IplLeagueAnalyser();
+		iplLeagueAnalyser.loadDataToList(FILE_PATH);
 	}
 
 	@Test
 	public void givenIplDataWhenCalculatedBattingAverageShouldReturnExactAnswer() {
 		assertEquals(101,iplLeagueAnalyser.loadCSVData(FILE_PATH));
+	}
+
+	@Test
+	public void givenIplDataCSVFileReturnsTop3BattingAverages() throws Exception {
+
+		List<IplData> topBattingAverage = iplLeagueAnalyser.getTopBattingAverages(FILE_PATH);
+		assertEquals(83.2, topBattingAverage .get(0).getAverage(), 0.0);
+		assertEquals(69.2, topBattingAverage .get(1).getAverage(), 0.0);
+		assertEquals(56.66, topBattingAverage .get(2).getAverage(), 0.0);
 	}
 }
