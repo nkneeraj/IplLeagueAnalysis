@@ -54,4 +54,10 @@ public class IplLeagueAnalysisTester {
 		List<IplData> batmenWithMax4s = iplLeagueAnalyser.getTopBatmenWithMax4s(FILE_PATH);
 		assertEquals("Shikhar Dhawan", batmenWithMax4s.get(0).player);
 	}
+	
+	@Test
+	public void givenIplDataCSVFileReturnsBestStrikeRatesWith6sAnd4s() throws Exception {
+		List<IplData> listOfTopStrikeRate = iplLeagueAnalyser.getCricketerWithBestStrikingRateWith6sAnd4s();
+	    assertEquals("Andre Russell", listOfTopStrikeRate.get(0).getPlayer());
+	}
 }
