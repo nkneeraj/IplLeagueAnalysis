@@ -40,4 +40,11 @@ public class IplLeagueAnalysisTester {
 		assertEquals(204.81, topStrikeRate.get(1).getSR(), 0.0);
 		assertEquals(200.00, topStrikeRate.get(2).getSR(), 0.0);
 	}
+	
+	@Test
+	public void givenIplDataCSVFileReturnsCricketerWithMax6s() throws Exception {
+
+		List<IplData> batmenWithMax6s = iplLeagueAnalyser.getTopBatmenWithMax6s(FILE_PATH);
+		assertEquals("Andre Russell", batmenWithMax6s.get(0).getPlayer());
+	}
 }
