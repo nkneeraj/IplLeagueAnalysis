@@ -61,4 +61,12 @@ public class IplLeagueAnalyser {
 		Collections.reverse(batmenWithMax6s);
 		return batmenWithMax6s ;
 	}
+	
+	public List<IplData> getTopBatmenWithMax4s(String csvFile) throws IOException {
+		List<IplData> batmenWithMax4s = IplDataList.stream()
+				.sorted((player1, player2) -> Double.compare(player1.get4s(), player2.get4s()))
+				.collect(Collectors.toList());
+		Collections.reverse(batmenWithMax4s);
+		return batmenWithMax4s ;
+	}
 }
