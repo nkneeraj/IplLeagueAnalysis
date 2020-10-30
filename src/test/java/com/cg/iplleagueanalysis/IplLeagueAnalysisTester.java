@@ -77,8 +77,8 @@ public class IplLeagueAnalysisTester {
 	@Test
 	public void givenIplBowlingData_SortBowlingDataAccordingToAverage_ReturnSameList() {
 		List<BowlingData> listOfTopBowlingAverage = iplLeagueAnalyser. getTopBowlingAverages();
-		assertEquals("Krishnappa Gowtham",listOfTopBowlingAverage.get(0).player);
-		assertEquals("Tim Southee",listOfTopBowlingAverage.get(1).player);
-		assertEquals("Prasidh Krishna",listOfTopBowlingAverage.get(2).player);
+		assertEquals("Anukul Roy",listOfTopBowlingAverage.get(0).player);
+		assertEquals("Jagadeesha Suchith",listOfTopBowlingAverage.get(1).player);
+		assertEquals("Alzarri Joseph",listOfTopBowlingAverage.get(2).player);
 	}
 }

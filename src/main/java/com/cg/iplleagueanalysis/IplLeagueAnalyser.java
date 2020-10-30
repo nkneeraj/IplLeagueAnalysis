@@ -122,9 +122,8 @@ public class IplLeagueAnalyser {
 	}
 
 	public List<BowlingData> getTopBowlingAverages() {
-		List<BowlingData> sortedAvgBowlingList = IplBowlingDataList.stream()
+		List<BowlingData> sortedAvgBowlingList = IplBowlingDataList.stream().filter(player->player.avg!=0)
 				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
-		Collections.reverse(sortedAvgBowlingList);
 		return sortedAvgBowlingList;
 	}
 
