@@ -142,4 +142,19 @@ public class IplLeagueAnalyser {
 		System.out.println(sortedBowlerWithBestEconomy);
 		return sortedBowlerWithBestEconomy;
 	}
+	
+	public List<BowlingData> getBowlersWithBestStrikeRateWithMax4wAnd5w(){
+		int max4wAnd5w=IplBowlingDataList.stream()
+				.map(player->player.num4w+player.num5w)
+				.max(Integer::compare)
+				.get();
+		List<BowlingData> bowlersWithMax4wAnd5w=IplBowlingDataList.stream()
+				.filter(player->player.num4w+player.num5w==max4wAnd5w)
+				.collect(Collectors.toList());
+		List<BowlingData> sortedWithBestStrikeRateAndMax4wAnd5w=bowlersWithMax4wAnd5w.stream()
+				.sorted((player1,player2)->Double.compare(player1.sr, player2.sr))
+				.collect(Collectors.toList());
+
+	   return sortedWithBestStrikeRateAndMax4wAnd5w;
+	}
 }
