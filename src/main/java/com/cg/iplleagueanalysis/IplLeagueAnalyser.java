@@ -135,4 +135,11 @@ public class IplLeagueAnalyser {
 		return sortedBowlingStrikingRateList;
 	}
 	
+	public List<BowlingData> getTopBowlerWithBestEconomy(){
+		List<BowlingData> sortedBowlerWithBestEconomy = IplBowlingDataList.stream()
+				.sorted((player1, player2) -> Double.compare(player1.econ, player2.econ))
+				.collect(Collectors.toList());
+		System.out.println(sortedBowlerWithBestEconomy);
+		return sortedBowlerWithBestEconomy;
+	}
 }
