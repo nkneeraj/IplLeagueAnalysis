@@ -158,29 +158,26 @@ public class IplLeagueAnalyser {
 				.collect(Collectors.toList());
 		return sortedStrikeRateAndAverageList;
 	}
-	
-	public List<BowlingData> getBowlersWithMaxWicketsAndBestAverage(){
+
+	public List<BowlingData> getBowlersWithMaxWicketsAndBestAverage() {
 		List<BowlingData> sortedWithMaxWicketsAndAverageList = IplBowlingDataList.stream()
-				.filter(player->player.avg!=0)
-				.sorted((player1, player2) -> Double.compare(player1.wkts+(1/player1.avg), player2.wkts+(1/player2.avg)))
+				.filter(player -> player.avg != 0).sorted((player1, player2) -> Double
+						.compare(player1.wkts + (1 / player1.avg), player2.wkts + (1 / player2.avg)))
 				.collect(Collectors.toList());
 		Collections.reverse(sortedWithMaxWicketsAndAverageList);
 		return sortedWithMaxWicketsAndAverageList;
-	}	
+	}
 
-	public List<String> getBestBattingAndBowlingAverage(){
+	public List<String> getBestBattingAndBowlingAverage() {
 
-		List<String> bestBattingAndBowlingAverage=new ArrayList<>();
+		List<String> bestBattingAndBowlingAverage = new ArrayList<>();
 
 		List<IplData> bestBattingAvg = IplDataList.stream()
-				.sorted((player1, player2) -> Double.compare(player1.avg,player2.avg))
-				.collect(Collectors.toList());
+				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
 		Collections.reverse(bestBattingAvg);
 
-		List<BowlingData> bestBowlingAvg=IplBowlingDataList.stream()
-				.filter(player->player.avg!=0)
-				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg))
-				.collect(Collectors.toList());
+		List<BowlingData> bestBowlingAvg = IplBowlingDataList.stream().filter(player -> player.avg != 0)
+				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
 
 		for (IplData batter : bestBattingAvg) {
 			for (BowlingData bowler : bestBowlingAvg) {
@@ -189,6 +186,7 @@ public class IplLeagueAnalyser {
 				}
 			}
 		}
-		return bestBattingAndBowlingAverage;		
+		return bestBattingAndBowlingAverage;
 	}
+
 }
