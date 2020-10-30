@@ -89,4 +89,10 @@ public class IplLeagueAnalysisTester {
      	assertEquals("Ish Sodhi",listOfTopBowlingStrikeRate.get(1).player);
 		assertEquals("Khaleel Ahmed",listOfTopBowlingStrikeRate.get(2).player);
 	}
+	
+	@Test
+	public void givenIplBowlingData_SortBowlingDataAccordingToEconomy_ReturnSameList() {
+		List<BowlingData> listOfTopBowlersWithBestEconomy = iplLeagueAnalyser.getTopBowlerWithBestEconomy();
+		assertEquals("Shivam Dube",listOfTopBowlersWithBestEconomy.get(0).player);
+	}
 }
