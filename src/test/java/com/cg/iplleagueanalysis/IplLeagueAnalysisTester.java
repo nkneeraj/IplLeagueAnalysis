@@ -127,5 +127,11 @@ public class IplLeagueAnalysisTester {
 		List<String> playerWithMostRunAndMostWicket=iplLeagueAnalyser.getPlayerWithMostRunAndMostWicket();
 		assertEquals("Andre Russell", playerWithMostRunAndMostWicket.get(0));
 		assertEquals("Hardik Pandya", playerWithMostRunAndMostWicket.get(1));
-	}	
+	}
+	
+	@Test
+	public void givenBattingData_whenSortedWithWithMaxCenturiesAndBattingAverage_ShouldReturnCorrectList() {
+		List<IplData> playerWithMaxCenturyAndBestBattingAverage=iplLeagueAnalyser.getPlayerWithMax100AndBestBattingAverage();
+		assertEquals("David Warner",playerWithMaxCenturyAndBestBattingAverage.get(0).player);
+	}
 }
