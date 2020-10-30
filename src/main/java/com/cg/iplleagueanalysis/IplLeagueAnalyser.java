@@ -122,39 +122,40 @@ public class IplLeagueAnalyser {
 	}
 
 	public List<BowlingData> getTopBowlingAverages() {
-		List<BowlingData> sortedAvgBowlingList = IplBowlingDataList.stream().filter(player->player.avg!=0)
+		List<BowlingData> sortedAvgBowlingList = IplBowlingDataList.stream().filter(player -> player.avg != 0)
 				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
 		return sortedAvgBowlingList;
 	}
-	
-	public List<BowlingData> getTopBowlingStrikeRates(){
-		List<BowlingData> sortedBowlingStrikingRateList = IplBowlingDataList.stream()
-				.filter(player->player.sr!=0)
-				.sorted((player1, player2) -> Double.compare(player1.sr, player2.sr))
-				.collect(Collectors.toList());
+
+	public List<BowlingData> getTopBowlingStrikeRates() {
+		List<BowlingData> sortedBowlingStrikingRateList = IplBowlingDataList.stream().filter(player -> player.sr != 0)
+				.sorted((player1, player2) -> Double.compare(player1.sr, player2.sr)).collect(Collectors.toList());
 		return sortedBowlingStrikingRateList;
 	}
-	
-	public List<BowlingData> getTopBowlerWithBestEconomy(){
+
+	public List<BowlingData> getTopBowlerWithBestEconomy() {
 		List<BowlingData> sortedBowlerWithBestEconomy = IplBowlingDataList.stream()
-				.sorted((player1, player2) -> Double.compare(player1.econ, player2.econ))
-				.collect(Collectors.toList());
-		System.out.println(sortedBowlerWithBestEconomy);
+				.sorted((player1, player2) -> Double.compare(player1.econ, player2.econ)).collect(Collectors.toList());
+//		System.out.println(sortedBowlerWithBestEconomy);
 		return sortedBowlerWithBestEconomy;
 	}
-	
-	public List<BowlingData> getBowlersWithBestStrikeRateWithMax4wAnd5w(){
-		int max4wAnd5w=IplBowlingDataList.stream()
-				.map(player->player.num4w+player.num5w)
-				.max(Integer::compare)
-				.get();
-		List<BowlingData> bowlersWithMax4wAnd5w=IplBowlingDataList.stream()
-				.filter(player->player.num4w+player.num5w==max4wAnd5w)
-				.collect(Collectors.toList());
-		List<BowlingData> sortedWithBestStrikeRateAndMax4wAnd5w=bowlersWithMax4wAnd5w.stream()
-				.sorted((player1,player2)->Double.compare(player1.sr, player2.sr))
-				.collect(Collectors.toList());
 
-	   return sortedWithBestStrikeRateAndMax4wAnd5w;
+	public List<BowlingData> getBowlersWithBestStrikeRateWithMax4wAnd5w() {
+		int max4wAnd5w = IplBowlingDataList.stream().map(player -> player.num4w + player.num5w).max(Integer::compare)
+				.get();
+		List<BowlingData> bowlersWithMax4wAnd5w = IplBowlingDataList.stream()
+				.filter(player -> player.num4w + player.num5w == max4wAnd5w).collect(Collectors.toList());
+		List<BowlingData> sortedWithBestStrikeRateAndMax4wAnd5w = bowlersWithMax4wAnd5w.stream()
+				.sorted((player1, player2) -> Double.compare(player1.sr, player2.sr)).collect(Collectors.toList());
+
+		return sortedWithBestStrikeRateAndMax4wAnd5w;
+	}
+
+	public List<BowlingData> getBowlersWithStrikeRateAndBestAverage() {
+		List<BowlingData> sortedStrikeRateAndAverageList = IplBowlingDataList.stream()
+				.filter(player -> player.avg != 0 && player.sr != 0)
+				.sorted((player1, player2) -> Double.compare(player1.sr + player1.avg, player2.sr + player2.avg))
+				.collect(Collectors.toList());
+		return sortedStrikeRateAndAverageList;
 	}
 }
