@@ -127,5 +127,5 @@ public class IplLeagueAnalysisTester {
 		List<String> playerWithMostRunAndMostWicket=iplLeagueAnalyser.getPlayerWithMostRunAndMostWicket();
 		assertEquals("Andre Russell", playerWithMostRunAndMostWicket.get(0));
 		assertEquals("Hardik Pandya", playerWithMostRunAndMostWicket.get(1));
-	}
+	}	
 }
