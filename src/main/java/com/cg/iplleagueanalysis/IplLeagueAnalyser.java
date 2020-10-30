@@ -126,5 +126,13 @@ public class IplLeagueAnalyser {
 				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
 		return sortedAvgBowlingList;
 	}
+	
+	public List<BowlingData> getTopBowlingStrikeRates(){
+		List<BowlingData> sortedBowlingStrikingRateList = IplBowlingDataList.stream()
+				.filter(player->player.sr!=0)
+				.sorted((player1, player2) -> Double.compare(player1.sr, player2.sr))
+				.collect(Collectors.toList());
+		return sortedBowlingStrikingRateList;
+	}
 
 }

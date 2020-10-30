@@ -81,4 +81,12 @@ public class IplLeagueAnalysisTester {
 		assertEquals("Jagadeesha Suchith",listOfTopBowlingAverage.get(1).player);
 		assertEquals("Alzarri Joseph",listOfTopBowlingAverage.get(2).player);
 	}
+	
+	@Test
+	public void givenIplBowlingData_SortBowlingDataAccordingToStrikeRate_ReturnSameList() {
+		List<BowlingData> listOfTopBowlingStrikeRate = iplLeagueAnalyser.getTopBowlingStrikeRates();
+		assertEquals("Alzarri Joseph",listOfTopBowlingStrikeRate.get(0).player);
+     	assertEquals("Ish Sodhi",listOfTopBowlingStrikeRate.get(1).player);
+		assertEquals("Khaleel Ahmed",listOfTopBowlingStrikeRate.get(2).player);
+	}
 }
